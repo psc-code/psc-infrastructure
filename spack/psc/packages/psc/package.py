@@ -41,7 +41,8 @@ class Psc(CMakePackage):
     depends_on('gtensor device=cuda', when='+cuda')
 
     depends_on('cuda', when='+nvtx')
-    depends_on('rmm', when='+rmm')
+
+    depends_on('rmm@0.18.0:', when='+rmm')
 
     def cmake_args(self):
         spec = self.spec

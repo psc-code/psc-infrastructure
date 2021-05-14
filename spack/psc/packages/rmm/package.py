@@ -10,11 +10,16 @@ class Rmm(CMakePackage):
     """RMM: RAPIDS Memory Manager"""
 
     homepage = "https://github.com/rapidsai/rmm"
+    url      = "https://github.com/rapidsai/rmm/archive/refs/tags/v0.16.0.tar.gz"
     git      = "https://github.com/rapidsai/rmm"
 
     maintainers = ['germasch']
 
-    version('0.16.0', tag='v0.16.0', preferred=True)
+    version('develop', branch='main')
+    version('0.19.0', sha256='eddd5b35b016d665eb4e8ea2dd31497d913b3e1eb831124e4cb27cba747267a0')
+    version('0.18.0', sha256='0cb4275a686e986563772188923f892988ee388cee25706c0572326c00cf83d9', preferred=True)
+    version('0.17.0', sha256='84ba6fbbdbc550b70ca1a6c63dc24dd9a5084f7701e319b9a982b9ce5a0889f6')
+    version('0.16.0', sha256='972fcdd3b5ab5af9a8e89671f0dbd47cfe1559ff8c4031c515ab89a487201ae2')
 
     variant('tests', default=False, description="Build tests")
     
@@ -23,7 +28,7 @@ class Rmm(CMakePackage):
     #depends_on('thrust@1.10.0:')
     depends_on('googletest@1.10.0 +gmock', type='build', when='+tests')
 
-    patch('rmm-summit.patch', when='@0.16.0:')
+    patch('rmm-summit.patch', when='@0.16.0')
 
     def cmake_args(self):
         spec = self.spec
