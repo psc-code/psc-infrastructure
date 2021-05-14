@@ -1,3 +1,3 @@
-# Docker images for PSC CI
+# PSC infrastructure
 
-[![psc-spack-ubuntu-20.04 build and push to GHCR](https://github.com/germasch/docker-psc/actions/workflows/build-docker-spack-ubuntu-20.04.yml/badge.svg)](https://github.com/germasch/docker-psc/actions/workflows/build-docker-spack-ubuntu-20.04.yml)
+This repo contains docker images for PSC CI and development, and spack configuration files and the "psc" spack repo.

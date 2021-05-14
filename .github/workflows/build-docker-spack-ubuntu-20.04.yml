@@ -38,11 +38,11 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: spack-ubuntu-20.04/Dockerfile
+          context: docker
+          file: docker/spack-ubuntu-20.04/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ghcr.io/germasch/spack-ubuntu-20.04:latest
+          tags: ghcr.io/psc-code/spack-ubuntu-20.04:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
@@ -80,11 +80,11 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: psc-spack-ubuntu-20.04/Dockerfile
+          context: docker
+          file: docker/psc-spack-ubuntu-20.04/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ghcr.io/germasch/psc-spack-ubuntu-20.04:latest
+          tags: ghcr.io/psc-code/psc-spack-ubuntu-20.04:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
@@ -122,11 +122,11 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: spack-cuda-ubuntu-20.04/Dockerfile
+          context: docker
+          file: docker/spack-cuda-ubuntu-20.04/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ghcr.io/germasch/spack-cuda-ubuntu-20.04:latest
+          tags: ghcr.io/psc-code/spack-cuda-ubuntu-20.04:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
@@ -164,11 +164,11 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: psc-spack-cuda-ubuntu-20.04/Dockerfile
+          context: docker
+          file: docker/psc-spack-cuda-ubuntu-20.04/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ghcr.io/germasch/psc-spack-cuda-ubuntu-20.04:latest
+          tags: ghcr.io/psc-code/psc-spack-cuda-ubuntu-20.04:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
