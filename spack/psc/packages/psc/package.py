@@ -15,7 +15,7 @@ class Psc(CMakePackage):
 
     maintainers = ['germasch']
 
-    version('develop', branch='master')
+    version('develop', branch='main')
 
     variant('adios2', default=True,
             description='Enable ADIOS2 support')
@@ -29,18 +29,24 @@ class Psc(CMakePackage):
             description='Build with unit testing')
     
     depends_on('cmake@3.17.0:')
+    depends_on('gtensor')
 
     depends_on('hdf5 +hl')
     depends_on('adios2@2.4.0:', when='+adios2')
+
+    depends_on('googletest@1.10.0:', when='+tests')
+
     depends_on('cuda', when='+cuda')
     depends_on('thrust@1.10.0:', when='+cuda')
+    depends_on('gtensor device=cuda', when='+cuda')
+
     depends_on('cuda', when='+nvtx')
     depends_on('rmm', when='+rmm')
 
     def cmake_args(self):
         spec = self.spec
-        
-        args = []
+
+        args = ['-DCPM_USE_LOCAL_PACKAGES=ON']
         args += ['-DUSE_CUDA={}'.format(
             'ON' if '+cuda' in self.spec else 'OFF')]
         args += ['-DPSC_USE_NVTX={}'.format(
