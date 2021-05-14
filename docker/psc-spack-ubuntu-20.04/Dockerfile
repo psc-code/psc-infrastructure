@@ -45,3 +45,7 @@ RUN spack env create -d psc-env && \
 COPY spack/ spack
 
 RUN spack repo add --scope system spack/psc
+
+RUN spack env activate psc-env \
+    && spack add googletest+gmock \
+    && spack install && spack clean -a
