@@ -47,6 +47,6 @@ COPY spack/ spack
 RUN spack repo add --scope system spack/psc
 
 RUN spack env activate psc-env \
-    && spack add thrust rmm cuda googletest+gmock \
+    && spack add thrust rmm cuda googletest \
     && spack install && spack clean -a
 
