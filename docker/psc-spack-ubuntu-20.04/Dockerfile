@@ -1,6 +1,6 @@
 
 ARG VARIANT="ubuntu-20.04"
-FROM ghcr.io/germasch/spack-${VARIANT}:latest
+FROM ghcr.io/psc-code/spack-${VARIANT}:latest
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
