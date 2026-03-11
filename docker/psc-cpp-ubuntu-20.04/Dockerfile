@@ -4,11 +4,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
     && apt-get -y install --no-install-recommends \
-    apt-transport-https \
-    ca-certificates \
-    gnupg \
-    wget \
-    software-properties-common \
+    # apt-transport-https \
+    # ca-certificates \
+    # gnupg \
+    # wget \
+    # software-properties-common \
     cmake \
     ninja-build \
     libopenmpi-dev \
