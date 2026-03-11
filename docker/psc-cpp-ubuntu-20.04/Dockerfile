@@ -1,10 +1,7 @@
-# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.166.1/containers/cpp/.devcontainer/base.Dockerfile
-
 FROM ubuntu:24.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# [Optional] Uncomment this section to install additional packages.
 RUN apt-get update \
     && apt-get -y install --no-install-recommends \
     libopenmpi-dev ninja-build \
