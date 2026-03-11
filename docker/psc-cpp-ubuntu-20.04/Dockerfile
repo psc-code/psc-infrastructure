@@ -4,8 +4,10 @@
 ARG VARIANT="ubuntu-24.04"
 FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-${VARIANT}
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 # [Optional] Uncomment this section to install additional packages.
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+RUN apt-get update \
     && apt-get -y install --no-install-recommends \
     libopenmpi-dev ninja-build \
     apt-transport-https ca-certificates gnupg software-properties-common wget \
