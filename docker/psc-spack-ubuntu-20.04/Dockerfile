@@ -24,6 +24,10 @@ RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc  \
     && apt-get -y install --no-install-recommends cmake=4.2.3-0kitware1ubuntu20.04.1 \
     && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update \
+    && apt-get install bzip2 \
+    && rm -rf /var/lib/apt/lists/*
+
 RUN spack config --scope system add "packages:all:target: [haswell]" \
     && spack external find --scope system && \
     echo "  libfabric: {externals: [{spec: libfabric@1.6.2, prefix: /usr}]}" >> /etc/spack/packages.yaml && \
@@ -43,7 +47,6 @@ RUN spack config --scope system add "packages:all:target: [haswell]" \
 
 RUN spack env create -d psc-env && \
     spack env activate psc-env && spack add adios2 \
-    && spack add bzip2 \
     && spack install && spack clean -a
 
 COPY spack/ spack
