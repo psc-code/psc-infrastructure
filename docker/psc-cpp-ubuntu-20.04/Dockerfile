@@ -9,7 +9,8 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
     libopenmpi-dev ninja-build \
     apt-transport-https ca-certificates gnupg software-properties-common wget \
-    libhdf5-openmpi-dev
+    libhdf5-openmpi-dev \
+    libadios2-mpi-c++11-dev libadios2-mpi-c-dev
 
 # cmake version 3.21 is gtensor's lower bound as of March 11 2026;
 # it would probably work just as well to use the "latest" cmake, but
