@@ -11,10 +11,13 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     apt-transport-https ca-certificates gnupg software-properties-common wget \
     libhdf5-openmpi-dev
 
+# cmake version 3.21 is gtensor's lower bound as of March 11 2026;
+# it would probably work just as well to use the "latest" cmake, but
+# Docker caches RUN commands and will use the cached "latest" cmake indefinitely
 RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc  \
     | gpg --dearmor - > /etc/apt/trusted.gpg.d/kitware.gpg \
     && apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal main' \
     && apt-get update \
-    && apt-get -y install --no-install-recommends cmake
+    && apt-get -y install --no-install-recommends cmake=3.21.4
 
 
