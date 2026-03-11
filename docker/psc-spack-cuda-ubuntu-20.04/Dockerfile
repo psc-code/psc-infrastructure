@@ -21,7 +21,7 @@ RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc  \
     | gpg --dearmor - > /etc/apt/trusted.gpg.d/kitware.gpg \
     && apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal main' \
     && apt-get update \
-    && apt-get -y install --no-install-recommends cmake=3.21.4 \
+    && apt-get -y install --no-install-recommends cmake=3.21 \
     && rm -rf /var/lib/apt/lists/*
 
 RUN spack config --scope system add "packages:all:target: [haswell]" \
