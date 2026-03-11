@@ -18,7 +18,7 @@ RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc  \
     | gpg --dearmor - > /etc/apt/trusted.gpg.d/kitware.gpg \
     && apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal main' \
     && apt-get update \
-    && apt-cache madison cmake \
-    && apt-get -y install --no-install-recommends cmake=3.21
+# if cmake needs to be updated, this shows the available versions:
+    # && apt-cache madison cmake \
+    && apt-get -y install --no-install-recommends cmake=3.21.3-0kitware1ubuntu20.04.1
 
-# TODO remove the apt-cache command; it's just to see what cmake versions are actually available
