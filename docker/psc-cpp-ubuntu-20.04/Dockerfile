@@ -14,3 +14,4 @@ RUN apt-get update \
     libopenmpi-dev \
     libhdf5-openmpi-dev \
     libadios2-mpi-c++11-dev libadios2-mpi-c-dev \
+    && rm -rf /var/lib/apt/lists/*
