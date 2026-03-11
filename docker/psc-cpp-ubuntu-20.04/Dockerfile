@@ -12,6 +12,8 @@ RUN apt-get update \
     cmake \
     # for CPM to install gtensor:
     git-all \
+    # cmake wants it:
+    python3 \
     ninja-build \
     gcc g++ \
     libopenmpi-dev \
