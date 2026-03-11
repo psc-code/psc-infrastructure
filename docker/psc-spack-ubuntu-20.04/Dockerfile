@@ -37,14 +37,15 @@ RUN spack config --scope system add "packages:all:target: [haswell]" \
     echo "  c-blosc: {externals: [{spec: c-blosc@1.17.1, prefix: /usr}]}" >> /etc/spack/packages.yaml && \
     echo "  snappy: {externals: [{spec: snappy@1.1.8, prefix: /usr}]}" >> /etc/spack/packages.yaml && \
     echo "  hdf5: {externals: [{spec: hdf5@1.10.4 +hl, prefix: /usr}]}" >> /etc/spack/packages.yaml && \
-    echo "  bzip2: {externals: [{spec: bzip2@1.0.8, prefix: /usr}]}" >> /etc/spack/packages.yaml && \
     echo "  libsodium: {externals: [{spec: libsodium@1.0.17, prefix: /usr}]}" >> /etc/spack/packages.yaml
 
 #    echo "  sz: {externals: [{spec: sz@1.0.4, prefix: /usr}]}" >> /etc/spack/packages.yaml && \
 
+# spack spec and the -d flag are purely for diagnostic purposes
 RUN spack env create -d psc-env && \
     spack env activate psc-env && spack add adios2 \
-    && spack install && spack clean -a
+    && spack spec \
+    && spack install -d && spack clean -a
 
 COPY spack/ spack
 
