@@ -11,6 +11,7 @@ RUN apt-get update \
     # software-properties-common \
     cmake \
     ninja-build \
+    gcc \
     libopenmpi-dev \
     libhdf5-openmpi-dev \
     libadios2-mpi-c++11-dev libadios2-mpi-c-dev \
