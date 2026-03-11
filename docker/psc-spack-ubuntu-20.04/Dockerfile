@@ -43,6 +43,7 @@ RUN spack config --scope system add "packages:all:target: [haswell]" \
 
 RUN spack env create -d psc-env && \
     spack -V && \
+    spack spec bzip2 && \
     spack env activate psc-env && spack add adios2 \
     && spack install --show-log-on-error -v && spack clean -a
 
