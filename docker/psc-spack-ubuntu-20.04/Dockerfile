@@ -24,10 +24,6 @@ RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc  \
     && apt-get -y install --no-install-recommends cmake=4.2.3-0kitware1ubuntu20.04.1 \
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update \
-    && apt-get install bzip2 \
-    && rm -rf /var/lib/apt/lists/*
-
 RUN spack config --scope system add "packages:all:target: [haswell]" \
     && spack external find --scope system && \
     echo "  libfabric: {externals: [{spec: libfabric@1.6.2, prefix: /usr}]}" >> /etc/spack/packages.yaml && \
@@ -41,6 +37,7 @@ RUN spack config --scope system add "packages:all:target: [haswell]" \
     echo "  c-blosc: {externals: [{spec: c-blosc@1.17.1, prefix: /usr}]}" >> /etc/spack/packages.yaml && \
     echo "  snappy: {externals: [{spec: snappy@1.1.8, prefix: /usr}]}" >> /etc/spack/packages.yaml && \
     echo "  hdf5: {externals: [{spec: hdf5@1.10.4 +hl, prefix: /usr}]}" >> /etc/spack/packages.yaml && \
+    echo "  bzip2: {externals: [{spec: bzip2@1.0.8, prefix: /usr}]}" >> /etc/spack/packages.yaml && \
     echo "  libsodium: {externals: [{spec: libsodium@1.0.17, prefix: /usr}]}" >> /etc/spack/packages.yaml
 
 #    echo "  sz: {externals: [{spec: sz@1.0.4, prefix: /usr}]}" >> /etc/spack/packages.yaml && \
