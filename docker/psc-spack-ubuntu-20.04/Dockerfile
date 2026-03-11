@@ -41,9 +41,11 @@ RUN spack config --scope system add "packages:all:target: [haswell]" \
 
 #    echo "  sz: {externals: [{spec: sz@1.0.4, prefix: /usr}]}" >> /etc/spack/packages.yaml && \
 
+# spack spec and the -d flag are purely for diagnostic purposes
 RUN spack env create -d psc-env && \
     spack env activate psc-env && spack add adios2 \
-    && spack install && spack clean -a
+    && spack spec \
+    && spack install -d && spack clean -a
 
 COPY spack/ spack
 
