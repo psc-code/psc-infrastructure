@@ -10,6 +10,8 @@ RUN apt-get update \
     # wget \
     # software-properties-common \
     cmake \
+    # for CPM to install gtensor:
+    git \
     ninja-build \
     gcc g++ \
     libopenmpi-dev \
