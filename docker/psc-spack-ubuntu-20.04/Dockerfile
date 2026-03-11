@@ -44,8 +44,7 @@ RUN spack config --scope system add "packages:all:target: [haswell]" \
 # spack spec and the -d flag are purely for diagnostic purposes
 RUN spack env create -d psc-env && \
     spack env activate psc-env && spack add adios2 \
-    && spack find --paths \
-    && spack install -d && spack clean -a
+    && spack install --show-log-on-error && spack clean -a
 
 COPY spack/ spack
 
