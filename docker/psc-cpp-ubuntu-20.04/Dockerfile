@@ -20,5 +20,5 @@ RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc  \
     && apt-get update \
 # if cmake needs to be updated, this shows the available versions:
     # && apt-cache madison cmake \
-    && apt-get -y install --no-install-recommends cmake=3.21.3-0kitware1ubuntu20.04.1
+    && apt-get -y install --no-install-recommends cmake=4.2.3-0kitware1ubuntu20.04.1
 
