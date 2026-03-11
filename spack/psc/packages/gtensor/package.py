@@ -24,7 +24,7 @@ class Gtensor(CMakePackage):
     variant('tests', default=False,
             description='Build with unit testing')
 
-    depends_on('cmake@3.18.0:')
+    depends_on('cmake@3.21.0:')
 
     depends_on('googletest@1.10.0:', when='+tests')
 
